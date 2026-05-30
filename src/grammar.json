@@ -1,0 +1,752 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
+  "name": "vrp",
+  "rules": {
+    "source_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_line"
+      }
+    },
+    "_line": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "comment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "blank_line"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "cmd_interface"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "cmd_generic"
+        }
+      ]
+    },
+    "blank_line": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "[ \\t]+"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\r?\\n"
+        }
+      ]
+    },
+    "comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "[ \\t]+"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^\\n]*"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\r?\\n"
+        }
+      ]
+    },
+    "cmd_interface": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "[ \\t]+"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "interface"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[ \\t]+"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "interface_name"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "PATTERN",
+                  "value": "[ \\t]+"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "ip_address"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "ip_address_slash"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "number"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "quoted_string"
+                      },
+                      {
+                        "type": "PATTERN",
+                        "value": "[^ \\t\\r\\n]+"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\r?\\n"
+        }
+      ]
+    },
+    "interface_name": {
+      "type": "PATTERN",
+      "value": "[A-Za-z][A-Za-z0-9\\/\\-_]*"
+    },
+    "cmd_generic": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "[ \\t]+"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "keyword",
+          "content": {
+            "type": "SYMBOL",
+            "name": "keyword"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "PATTERN",
+                  "value": "[ \\t]+"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "ip_address"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "ip_address_slash"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "number"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "quoted_string"
+                      },
+                      {
+                        "type": "PATTERN",
+                        "value": "[^ \\t\\r\\n]+"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\r?\\n"
+        }
+      ]
+    },
+    "ip_address": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[0-9]{1,3}"
+          },
+          {
+            "type": "STRING",
+            "value": "."
+          },
+          {
+            "type": "PATTERN",
+            "value": "[0-9]{1,3}"
+          },
+          {
+            "type": "STRING",
+            "value": "."
+          },
+          {
+            "type": "PATTERN",
+            "value": "[0-9]{1,3}"
+          },
+          {
+            "type": "STRING",
+            "value": "."
+          },
+          {
+            "type": "PATTERN",
+            "value": "[0-9]{1,3}"
+          }
+        ]
+      }
+    },
+    "ip_address_slash": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[0-9]{1,3}"
+          },
+          {
+            "type": "STRING",
+            "value": "."
+          },
+          {
+            "type": "PATTERN",
+            "value": "[0-9]{1,3}"
+          },
+          {
+            "type": "STRING",
+            "value": "."
+          },
+          {
+            "type": "PATTERN",
+            "value": "[0-9]{1,3}"
+          },
+          {
+            "type": "STRING",
+            "value": "."
+          },
+          {
+            "type": "PATTERN",
+            "value": "[0-9]{1,3}"
+          },
+          {
+            "type": "STRING",
+            "value": "/"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[0-9]{1,2}"
+          }
+        ]
+      }
+    },
+    "number": {
+      "type": "PATTERN",
+      "value": "[0-9]+"
+    },
+    "quoted_string": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "\""
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^\"]*"
+          },
+          {
+            "type": "STRING",
+            "value": "\""
+          }
+        ]
+      }
+    },
+    "keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "sysname"
+        },
+        {
+          "type": "STRING",
+          "value": "system-view"
+        },
+        {
+          "type": "STRING",
+          "value": "quit"
+        },
+        {
+          "type": "STRING",
+          "value": "return"
+        },
+        {
+          "type": "STRING",
+          "value": "save"
+        },
+        {
+          "type": "STRING",
+          "value": "reboot"
+        },
+        {
+          "type": "STRING",
+          "value": "commit"
+        },
+        {
+          "type": "STRING",
+          "value": "rollback"
+        },
+        {
+          "type": "STRING",
+          "value": "display"
+        },
+        {
+          "type": "STRING",
+          "value": "disp"
+        },
+        {
+          "type": "STRING",
+          "value": "vlan"
+        },
+        {
+          "type": "STRING",
+          "value": "vlanif"
+        },
+        {
+          "type": "STRING",
+          "value": "batch"
+        },
+        {
+          "type": "STRING",
+          "value": "description"
+        },
+        {
+          "type": "STRING",
+          "value": "ip"
+        },
+        {
+          "type": "STRING",
+          "value": "port"
+        },
+        {
+          "type": "STRING",
+          "value": "undo"
+        },
+        {
+          "type": "STRING",
+          "value": "shutdown"
+        },
+        {
+          "type": "STRING",
+          "value": "shut"
+        },
+        {
+          "type": "STRING",
+          "value": "aaa"
+        },
+        {
+          "type": "STRING",
+          "value": "local-user"
+        },
+        {
+          "type": "STRING",
+          "value": "authentication-mode"
+        },
+        {
+          "type": "STRING",
+          "value": "authorization-mode"
+        },
+        {
+          "type": "STRING",
+          "value": "vpn-instance"
+        },
+        {
+          "type": "STRING",
+          "value": "route-distinguisher"
+        },
+        {
+          "type": "STRING",
+          "value": "vpn-target"
+        },
+        {
+          "type": "STRING",
+          "value": "ospf"
+        },
+        {
+          "type": "STRING",
+          "value": "bgp"
+        },
+        {
+          "type": "STRING",
+          "value": "isis"
+        },
+        {
+          "type": "STRING",
+          "value": "rip"
+        },
+        {
+          "type": "STRING",
+          "value": "area"
+        },
+        {
+          "type": "STRING",
+          "value": "network"
+        },
+        {
+          "type": "STRING",
+          "value": "route-policy"
+        },
+        {
+          "type": "STRING",
+          "value": "bfd"
+        },
+        {
+          "type": "STRING",
+          "value": "discriminator"
+        },
+        {
+          "type": "STRING",
+          "value": "min-tx-interval"
+        },
+        {
+          "type": "STRING",
+          "value": "min-rx-interval"
+        },
+        {
+          "type": "STRING",
+          "value": "detect-multiplier"
+        },
+        {
+          "type": "STRING",
+          "value": "acl"
+        },
+        {
+          "type": "STRING",
+          "value": "traffic"
+        },
+        {
+          "type": "STRING",
+          "value": "classifier"
+        },
+        {
+          "type": "STRING",
+          "value": "behavior"
+        },
+        {
+          "type": "STRING",
+          "value": "policy"
+        },
+        {
+          "type": "STRING",
+          "value": "stp"
+        },
+        {
+          "type": "STRING",
+          "value": "rstp"
+        },
+        {
+          "type": "STRING",
+          "value": "mstp"
+        },
+        {
+          "type": "STRING",
+          "value": "vrrp"
+        },
+        {
+          "type": "STRING",
+          "value": "vrid"
+        },
+        {
+          "type": "STRING",
+          "value": "virtual-ip"
+        },
+        {
+          "type": "STRING",
+          "value": "priority"
+        },
+        {
+          "type": "STRING",
+          "value": "eth-trunk"
+        },
+        {
+          "type": "STRING",
+          "value": "mode"
+        },
+        {
+          "type": "STRING",
+          "value": "lacp"
+        },
+        {
+          "type": "STRING",
+          "value": "lldp"
+        },
+        {
+          "type": "STRING",
+          "value": "snmp-agent"
+        },
+        {
+          "type": "STRING",
+          "value": "ntp-service"
+        },
+        {
+          "type": "STRING",
+          "value": "ntp-server"
+        },
+        {
+          "type": "STRING",
+          "value": "dhcp"
+        },
+        {
+          "type": "STRING",
+          "value": "ip-pool"
+        },
+        {
+          "type": "STRING",
+          "value": "stack"
+        },
+        {
+          "type": "STRING",
+          "value": "css"
+        },
+        {
+          "type": "STRING",
+          "value": "mirror"
+        },
+        {
+          "type": "STRING",
+          "value": "observe-port"
+        },
+        {
+          "type": "STRING",
+          "value": "ssh"
+        },
+        {
+          "type": "STRING",
+          "value": "stelnet"
+        },
+        {
+          "type": "STRING",
+          "value": "protocol"
+        },
+        {
+          "type": "STRING",
+          "value": "inbound"
+        },
+        {
+          "type": "STRING",
+          "value": "user-interface"
+        },
+        {
+          "type": "STRING",
+          "value": "authentication"
+        },
+        {
+          "type": "STRING",
+          "value": "idle-timeout"
+        },
+        {
+          "type": "STRING",
+          "value": "service-type"
+        },
+        {
+          "type": "STRING",
+          "value": "level"
+        },
+        {
+          "type": "STRING",
+          "value": "state"
+        },
+        {
+          "type": "STRING",
+          "value": "password"
+        },
+        {
+          "type": "STRING",
+          "value": "header"
+        },
+        {
+          "type": "STRING",
+          "value": "banner"
+        },
+        {
+          "type": "STRING",
+          "value": "time-range"
+        },
+        {
+          "type": "STRING",
+          "value": "set"
+        },
+        {
+          "type": "STRING",
+          "value": "permit"
+        },
+        {
+          "type": "STRING",
+          "value": "deny"
+        },
+        {
+          "type": "STRING",
+          "value": "dfs-group"
+        },
+        {
+          "type": "STRING",
+          "value": "m-lag"
+        },
+        {
+          "type": "STRING",
+          "value": "link-type"
+        },
+        {
+          "type": "STRING",
+          "value": "trunk"
+        },
+        {
+          "type": "STRING",
+          "value": "access"
+        },
+        {
+          "type": "STRING",
+          "value": "hybrid"
+        },
+        {
+          "type": "STRING",
+          "value": "allow-pass"
+        },
+        {
+          "type": "STRING",
+          "value": "default"
+        },
+        {
+          "type": "STRING",
+          "value": "route-static"
+        },
+        {
+          "type": "STRING",
+          "value": "ipv6"
+        },
+        {
+          "type": "STRING",
+          "value": "ip-prefix"
+        },
+        {
+          "type": "STRING",
+          "value": "export-extcommunity"
+        },
+        {
+          "type": "STRING",
+          "value": "import-extcommunity"
+        },
+        {
+          "type": "STRING",
+          "value": "binding"
+        },
+        {
+          "type": "STRING",
+          "value": "irf"
+        },
+        {
+          "type": "STRING",
+          "value": "member"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[A-Za-z][A-Za-z0-9\\-_]*"
+        }
+      ]
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "[ \\t]"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}

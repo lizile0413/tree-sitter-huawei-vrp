@@ -1,0 +1,533 @@
+[
+  {
+    "type": "blank_line",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "cmd_generic",
+    "named": true,
+    "fields": {
+      "keyword": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "ip_address",
+          "named": true
+        },
+        {
+          "type": "ip_address_slash",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "quoted_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cmd_interface",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "interface_name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "ip_address",
+          "named": true
+        },
+        {
+          "type": "ip_address_slash",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "quoted_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "keyword",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "blank_line",
+          "named": true
+        },
+        {
+          "type": "cmd_generic",
+          "named": true
+        },
+        {
+          "type": "cmd_interface",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "#",
+    "named": false
+  },
+  {
+    "type": "aaa",
+    "named": false
+  },
+  {
+    "type": "access",
+    "named": false
+  },
+  {
+    "type": "acl",
+    "named": false
+  },
+  {
+    "type": "allow-pass",
+    "named": false
+  },
+  {
+    "type": "area",
+    "named": false
+  },
+  {
+    "type": "authentication",
+    "named": false
+  },
+  {
+    "type": "authentication-mode",
+    "named": false
+  },
+  {
+    "type": "authorization-mode",
+    "named": false
+  },
+  {
+    "type": "banner",
+    "named": false
+  },
+  {
+    "type": "batch",
+    "named": false
+  },
+  {
+    "type": "behavior",
+    "named": false
+  },
+  {
+    "type": "bfd",
+    "named": false
+  },
+  {
+    "type": "bgp",
+    "named": false
+  },
+  {
+    "type": "binding",
+    "named": false
+  },
+  {
+    "type": "classifier",
+    "named": false
+  },
+  {
+    "type": "commit",
+    "named": false
+  },
+  {
+    "type": "css",
+    "named": false
+  },
+  {
+    "type": "default",
+    "named": false
+  },
+  {
+    "type": "deny",
+    "named": false
+  },
+  {
+    "type": "description",
+    "named": false
+  },
+  {
+    "type": "detect-multiplier",
+    "named": false
+  },
+  {
+    "type": "dfs-group",
+    "named": false
+  },
+  {
+    "type": "dhcp",
+    "named": false
+  },
+  {
+    "type": "discriminator",
+    "named": false
+  },
+  {
+    "type": "disp",
+    "named": false
+  },
+  {
+    "type": "display",
+    "named": false
+  },
+  {
+    "type": "eth-trunk",
+    "named": false
+  },
+  {
+    "type": "export-extcommunity",
+    "named": false
+  },
+  {
+    "type": "header",
+    "named": false
+  },
+  {
+    "type": "hybrid",
+    "named": false
+  },
+  {
+    "type": "idle-timeout",
+    "named": false
+  },
+  {
+    "type": "import-extcommunity",
+    "named": false
+  },
+  {
+    "type": "inbound",
+    "named": false
+  },
+  {
+    "type": "interface",
+    "named": false
+  },
+  {
+    "type": "interface_name",
+    "named": true
+  },
+  {
+    "type": "ip",
+    "named": false
+  },
+  {
+    "type": "ip-pool",
+    "named": false
+  },
+  {
+    "type": "ip-prefix",
+    "named": false
+  },
+  {
+    "type": "ip_address",
+    "named": true
+  },
+  {
+    "type": "ip_address_slash",
+    "named": true
+  },
+  {
+    "type": "ipv6",
+    "named": false
+  },
+  {
+    "type": "irf",
+    "named": false
+  },
+  {
+    "type": "isis",
+    "named": false
+  },
+  {
+    "type": "lacp",
+    "named": false
+  },
+  {
+    "type": "level",
+    "named": false
+  },
+  {
+    "type": "link-type",
+    "named": false
+  },
+  {
+    "type": "lldp",
+    "named": false
+  },
+  {
+    "type": "local-user",
+    "named": false
+  },
+  {
+    "type": "m-lag",
+    "named": false
+  },
+  {
+    "type": "member",
+    "named": false
+  },
+  {
+    "type": "min-rx-interval",
+    "named": false
+  },
+  {
+    "type": "min-tx-interval",
+    "named": false
+  },
+  {
+    "type": "mirror",
+    "named": false
+  },
+  {
+    "type": "mode",
+    "named": false
+  },
+  {
+    "type": "mstp",
+    "named": false
+  },
+  {
+    "type": "network",
+    "named": false
+  },
+  {
+    "type": "ntp-server",
+    "named": false
+  },
+  {
+    "type": "ntp-service",
+    "named": false
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "observe-port",
+    "named": false
+  },
+  {
+    "type": "ospf",
+    "named": false
+  },
+  {
+    "type": "password",
+    "named": false
+  },
+  {
+    "type": "permit",
+    "named": false
+  },
+  {
+    "type": "policy",
+    "named": false
+  },
+  {
+    "type": "port",
+    "named": false
+  },
+  {
+    "type": "priority",
+    "named": false
+  },
+  {
+    "type": "protocol",
+    "named": false
+  },
+  {
+    "type": "quit",
+    "named": false
+  },
+  {
+    "type": "quoted_string",
+    "named": true
+  },
+  {
+    "type": "reboot",
+    "named": false
+  },
+  {
+    "type": "return",
+    "named": false
+  },
+  {
+    "type": "rip",
+    "named": false
+  },
+  {
+    "type": "rollback",
+    "named": false
+  },
+  {
+    "type": "route-distinguisher",
+    "named": false
+  },
+  {
+    "type": "route-policy",
+    "named": false
+  },
+  {
+    "type": "route-static",
+    "named": false
+  },
+  {
+    "type": "rstp",
+    "named": false
+  },
+  {
+    "type": "save",
+    "named": false
+  },
+  {
+    "type": "service-type",
+    "named": false
+  },
+  {
+    "type": "set",
+    "named": false
+  },
+  {
+    "type": "shut",
+    "named": false
+  },
+  {
+    "type": "shutdown",
+    "named": false
+  },
+  {
+    "type": "snmp-agent",
+    "named": false
+  },
+  {
+    "type": "ssh",
+    "named": false
+  },
+  {
+    "type": "stack",
+    "named": false
+  },
+  {
+    "type": "state",
+    "named": false
+  },
+  {
+    "type": "stelnet",
+    "named": false
+  },
+  {
+    "type": "stp",
+    "named": false
+  },
+  {
+    "type": "sysname",
+    "named": false
+  },
+  {
+    "type": "system-view",
+    "named": false
+  },
+  {
+    "type": "time-range",
+    "named": false
+  },
+  {
+    "type": "traffic",
+    "named": false
+  },
+  {
+    "type": "trunk",
+    "named": false
+  },
+  {
+    "type": "undo",
+    "named": false
+  },
+  {
+    "type": "user-interface",
+    "named": false
+  },
+  {
+    "type": "virtual-ip",
+    "named": false
+  },
+  {
+    "type": "vlan",
+    "named": false
+  },
+  {
+    "type": "vlanif",
+    "named": false
+  },
+  {
+    "type": "vpn-instance",
+    "named": false
+  },
+  {
+    "type": "vpn-target",
+    "named": false
+  },
+  {
+    "type": "vrid",
+    "named": false
+  },
+  {
+    "type": "vrrp",
+    "named": false
+  }
+]

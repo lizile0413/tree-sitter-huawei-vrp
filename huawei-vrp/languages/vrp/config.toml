@@ -1,0 +1,10 @@
+name = "Huawei VRP"
+grammar = "vrp"
+path_suffixes = ["vrp", "cfg"]
+line_comments = ["#"]
+tab_size = 2
+hard_tabs = false
+show_whitespaces = "all"
+
+[overrides]
+word_characters = ["-", "/", ".", ":"]

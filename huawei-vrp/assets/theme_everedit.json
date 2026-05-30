@@ -1,0 +1,32 @@
+{
+  "_description": "EverEdit-inspired classic white-background high-contrast theme for Huawei VRP config files",
+  "_usage": "Copy the theme_overrides section into your Zed settings.json",
+
+  "theme": "One Light",
+
+  "theme_overrides": [
+    {
+      "path": "syntax",
+      "value": {
+        "comment":           { "color": "#8A8A8A", "font_style": "italic" },
+        "keyword":           { "color": "#0033B3", "font_weight": 700 },
+        "keyword.strong":    { "color": "#0033B3", "font_weight": 700 },
+        "keyword.exception": { "color": "#CC0000", "font_weight": 700 },
+        "keyword.conditional": { "color": "#AA4400", "font_weight": 700 },
+        "keyword.directive": { "color": "#006622", "font_weight": 700 },
+        "constant.builtin":  { "color": "#660099", "font_style": "italic" },
+        "type.interface":    { "color": "#006622", "font_weight": 700 },
+        "constant.numeric":  { "color": "#991111" },
+        "number":            { "color": "#991111" },
+        "string":            { "color": "#666666" }
+      }
+    }
+  ],
+
+  "show_whitespaces": "all",
+  "indent_guides": { "enabled": true },
+
+  "file_types": {
+    "Huawei VRP": ["vrp", "cfg"]
+  }
+}

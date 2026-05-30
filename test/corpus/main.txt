@@ -1,0 +1,40 @@
+====================
+Simple Config
+====================
+
+sysname Test-Device
+#
+interface 10GE1/0/1
+ undo shutdown
+#
+return
+
+---
+
+====================
+Display Command
+====================
+
+display interface brief
+
+---
+
+====================
+Interface with IP
+====================
+
+interface Vlanif10
+ ip address 10.0.10.1 255.255.255.0
+
+---
+
+====================
+VPN Instance
+====================
+
+ip vpn-instance Customer-A
+ route-distinguisher 100:1
+ vpn-target 100:1 export-extcommunity
+ vpn-target 100:1 import-extcommunity
+
+---

@@ -1,0 +1,19 @@
+{
+  "name": "tree-sitter-vrp",
+  "version": "0.1.0",
+  "description": "Tree-sitter grammar for Huawei VRP CLI configuration files",
+  "main": "bindings/node",
+  "scripts": {
+    "build": "tree-sitter generate && tree-sitter build --wasm",
+    "test": "tree-sitter test",
+    "parse": "tree-sitter parse"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.18.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.24.7"
+  }
+}

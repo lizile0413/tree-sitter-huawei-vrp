@@ -1,0 +1,31 @@
+{
+  "grammars": [
+    {
+      "name": "vrp",
+      "camelcase": "Vrp",
+      "scope": "source.vrp",
+      "path": ".",
+      "file-types": [
+        "vrp",
+        "cfg"
+      ],
+      "highlights": "queries/highlights.scm"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Tree-sitter grammar for Huawei VRP CLI configuration files",
+    "links": {
+      "repository": "https://github.com/tree-sitter/tree-sitter-vrp"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}
