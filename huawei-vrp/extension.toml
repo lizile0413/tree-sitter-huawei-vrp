@@ -1,6 +1,2 @@
 [grammars.vrp]
-repository = "https://github.com/hanako-dev/tree-sitter-huawei-vrp"
-rev = "main"
-
-# For local .wasm, comment the above and use:
-# path = "grammars/vrp.wasm"
+path = "grammars/vrp.wasm"
