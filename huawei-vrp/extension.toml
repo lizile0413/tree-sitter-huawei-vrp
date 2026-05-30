@@ -1,2 +1,7 @@
+name = "Huawei VRP"
+version = "0.1.0"
+authors = ["lizile0413"]
+description = "Tree-sitter grammar for Huawei VRP CLI configuration files"
+
 [grammars.vrp]
 path = "grammars/vrp.wasm"
