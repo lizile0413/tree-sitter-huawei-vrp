@@ -23,7 +23,7 @@ jobs:
         run: npx tree-sitter generate
 
       - name: Build WASM
-        run: npx tree-sitter build --wasm --output huawei-vrp/grammars/vrp.wasm
+        run: npx tree-sitter build --wasm --docker --output huawei-vrp/grammars/vrp.wasm
 
       - name: Upload extension artifact
         uses: actions/upload-artifact@v4
@@ -36,7 +36,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            tree-sitter-vrp.wasm
+            huawei-vrp/grammars/vrp.wasm
             huawei-vrp/extension.toml
             huawei-vrp/languages/vrp/config.toml
             huawei-vrp/languages/vrp/highlights.scm
