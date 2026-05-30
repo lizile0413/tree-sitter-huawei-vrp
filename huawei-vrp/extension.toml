@@ -1,7 +1,25 @@
+﻿id = "huawei-vrp"
 name = "Huawei VRP"
 version = "0.1.0"
+schema_version = 1
+description = "Huawei VRP CLI syntax highlighting"
+repository = "https://github.com/lizile0413/tree-sitter-huawei-vrp"
 authors = ["lizile0413"]
-description = "Tree-sitter grammar for Huawei VRP CLI configuration files"
+themes = []
+icon_themes = []
+languages = ["languages/vrp"]
+capabilities = []
+
+[lib]
 
 [grammars.vrp]
-path = "grammars/vrp.wasm"
+repository = "https://github.com/lizile0413/tree-sitter-huawei-vrp"
+rev = "5ec8802fb36d3da6dbb8cbc1fb0e3586eb1f71ad"
+
+[language_servers]
+
+[context_servers]
+
+[agent_servers]
+
+[slash_commands]
