@@ -23,10 +23,7 @@ jobs:
         run: npx tree-sitter generate
 
       - name: Build WASM
-        run: npx tree-sitter build --wasm
-
-      - name: Copy WASM into extension
-        run: cp tree-sitter-vrp.wasm huawei-vrp/grammars/vrp.wasm
+        run: npx tree-sitter build --wasm --output huawei-vrp/grammars/vrp.wasm
 
       - name: Upload extension artifact
         uses: actions/upload-artifact@v4
